@@ -1,7 +1,9 @@
-function ReservationForm({ cabin }) {
-  // CHANGE
-  const { maxCapacity } = cabin;
+"use client";
+import { useReservation } from "./ReservationContext";
 
+function ReservationForm({ cabin }) {
+  const { maxCapacity } = cabin;
+  const { range } = useReservation();
   return (
     <div className="scale-[1.01]">
       <div className="bg-primary-800 text-primary-300 px-16 py-2 flex justify-between items-center">
