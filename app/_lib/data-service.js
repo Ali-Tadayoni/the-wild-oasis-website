@@ -79,7 +79,6 @@ export async function getBookedDatesByCabinId(cabinId) {
   let today = new Date();
   today.setUTCHours(0, 0, 0, 0);
   today = today.toISOString();
-
   // Getting all bookings
   const { data, error } = await supabase.from("bookings").select("*").eq("cabinId", cabinId).or(`startDate.gte.${today},status.eq.checked-in`);
 
