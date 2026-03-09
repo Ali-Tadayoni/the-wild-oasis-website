@@ -1,9 +1,12 @@
 "use client";
+
 import { useState } from "react";
 
 function UpdateProfileForm({ children }) {
   const [count, setCount] = useState();
+
   const countryFlag = "pt.jpg";
+
   return (
     <form className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
       <div className="space-y-2">
@@ -32,7 +35,10 @@ function UpdateProfileForm({ children }) {
 
       <div className="space-y-2">
         <label htmlFor="nationalID">National ID number</label>
-        <input name="nationalID" className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm" />
+        <input
+          name="nationalID"
+          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+        />
       </div>
 
       <div className="flex justify-end items-center gap-6">

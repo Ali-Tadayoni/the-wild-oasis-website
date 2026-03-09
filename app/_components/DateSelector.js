@@ -1,11 +1,16 @@
 "use client";
+
 import { isWithinInterval } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { useReservation } from "./ReservationContext";
 
 function isAlreadyBooked(range, datesArr) {
-  return range.from && range.to && datesArr.some((date) => isWithinInterval(date, { start: range.from, end: range.to }));
+  return (
+    range.from &&
+    range.to &&
+    datesArr.some((date) => isWithinInterval(date, { start: range.from, end: range.to }))
+  );
 }
 
 function DateSelector({ settings, bookedDates, cabin }) {
@@ -53,14 +58,18 @@ function DateSelector({ settings, bookedDates, cabin }) {
                 <span>&times;</span> <span>{numNights}</span>
               </p>
               <p>
-                <span className="text-lg font-bold uppercase">Total</span> <span className="text-2xl font-semibold">${cabinPrice}</span>
+                <span className="text-lg font-bold uppercase">Total</span>{" "}
+                <span className="text-2xl font-semibold">${cabinPrice}</span>
               </p>
             </>
           ) : null}
         </div>
 
         {range.from || range.to ? (
-          <button className="border border-primary-800 py-2 px-4 text-sm font-semibold" onClick={resetRange}>
+          <button
+            className="border border-primary-800 py-2 px-4 text-sm font-semibold"
+            onClick={resetRange}
+          >
             Clear
           </button>
         ) : null}

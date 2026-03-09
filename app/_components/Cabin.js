@@ -4,6 +4,7 @@ import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 
 function Cabin({ cabin }) {
   const { id, name, maxCapacity, regularPrice, discount, image, description } = cabin;
+
   return (
     <div>
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
