@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import { updateGuest } from "../_lib/actions";
-import { useFormStatus } from "react-dom";
+import SubmitButton from "./SubmitButton";
 
+// This 'children' prop shows how we pass as server component to this client component.
 function UpdateProfileForm({ children, guest }) {
-  const [count, setCount] = useState();
-
   const { fullName, email, nationality, nationalID, countryFlag } = guest;
 
   return (
@@ -49,23 +48,9 @@ function UpdateProfileForm({ children, guest }) {
       </div>
 
       <div className="flex justify-end items-center gap-6">
-        <Button />
+        <SubmitButton pendingLabel="Updating...">Update profile</SubmitButton>
       </div>
     </form>
-  );
-}
-
-function Button() {
-  // we edxtract this button inside its own compoentn becaue 'useFormStatus' should only be used in a compoentn which is rendered by a form element.
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
-      disabled={pending}
-    >
-      {pending ? "Updating..." : "Update profile"}
-    </button>
   );
 }
 
