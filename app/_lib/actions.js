@@ -32,6 +32,8 @@ export async function updateGuest(formData) {
 }
 
 export async function deleteReservation(bookingId) {
+  // Useful snippet to add an artificial delay
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
 
