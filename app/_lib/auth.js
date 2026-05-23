@@ -22,7 +22,7 @@ const authConfig = {
      * This callback acts like a middleware and will be called before actual sign-in process
      * Usefull for adding a new user to database table or check if a user is already in our table or not
      */
-    async signIn(user, account, profile) {
+    async signIn({ user, account, profile }) {
       try {
         const existingGuest = await getGuest(user.email);
 
